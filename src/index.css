@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+*{
+  color: white;
+}
+
+:root{
+  --darkerColor : #02191D;
+  --lighterColor: #0E464F;
+  --active: #24A0B5;
+}
+
+input, textarea{
+  border: 2px solid #249fb53b;
+}
+input:focus, textarea:focus, button:hover, a:hover, .ticketSelection:hover{
+  background:var(--active);
+  outline: 1px solid #0E464F;
+  cursor: pointer;
+}
+
+.bg{
+  background: linear-gradient(var(--darkerColor), var(--lighterColor)) ;
+}
+
+.black{
+  color:black
+}
+
+.active{
+  background: #249fb53b;
+  border: 1px solid  var(--active);
+}
+
+.activeborder{
+  border: 1px solid  var(--active);
+}
+
+.darkborder{
+  border: 2px solid var(--lighterColor);
+  border-radius: 12px;
+}
+
+.ticketheight{
+  height: 20.5em;
+}
+
+.transition{
+  transform: translateY(-10px);
+  height: 4.5px;
+  background: linear-gradient(to right,var(--active) 40%, var(--darkerColor) 20%);
+}
+
+th{
+  font-size: 10px;
+  font-weight: 500;
+  width: 40%;
+  padding-bottom: 2px;
+}
+
+td{
+  padding-bottom: 4px;
+}
+
+@media (max-width : 600px) {
+  .hide4small{
+    display: none;
+  }
+}
+

@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Croissant+One&family=Geo:ital@0;1&family=Road+Rage&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.roboto {
+    font-family: "Roboto", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.roadFont {
+    font-family: "Road Rage", serif;
+    font-weight: 400;
+}
+
+.geo {
+    font-family: "Geo", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+.geo-italic {
+    font-family: "Geo", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.logoText {
+    font-family: "Croissant One", serif;
+    font-weight: 400;
+    font-style: normal;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.655);
+    color: #115460;
+    text-shadow: 1.5px 1px 2px #24A0B5;
+  }
+  
+  
