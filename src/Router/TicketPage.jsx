@@ -42,10 +42,10 @@ function TicketPage() {
 
 
 
-    function handleOption1(e) {
+    function handleOption2(e) {
         handleSubmit(e)
     }
-    function handleOption2() {
+    function handleOption1() {
         navigate("/")
     }
 
@@ -116,7 +116,7 @@ function TicketPage() {
                 <Navbar />
             </div>
             <div>
-                <Card number={2} cardIntro={"Attendee Details"} option1={`Get ${ticketData && ticketData.price} Ticket`} option2={"Back"}
+                <Card number={2} cardIntro={"Attendee Details"} option2={`Get ${ticketData && ticketData.price} Ticket`} option1={"Back"}
                     handleOption1={handleOption1} handleOption2={handleOption2}>
                     <form onSubmit={handleSubmit} onKeyDown={(e) => e.key === "Enter" && handleSubmit(e)}>
                         <div>
