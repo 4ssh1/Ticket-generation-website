@@ -12,7 +12,7 @@ function HomePage() {
   const [selectedPrice, setSelectedPrice] = useState("")
   const [errorMessage, setErrorMessage]= useState("")
 
-    const [ticketTitle, setTicketTitle] = useState([
+    const [ticketTitle, setTicketTitle] = useState([ 
        { type: "REGULAR ACCESS",
          price: "Free",
          remains: 20
