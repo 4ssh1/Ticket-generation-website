@@ -20,6 +20,8 @@ function TicketPage() {
     const [loading, setLoading] = useState(false)
     const [cloudImage, setCloudImage] = useState('')
     const navigate = useNavigate()
+    const ticketData = JSON.parse(localStorage.getItem("TicketInfo"))
+
 
     useEffect(() => {
         const usersInfo = JSON.parse(localStorage.getItem("UserInfo")) || {
@@ -114,7 +116,7 @@ function TicketPage() {
                 <Navbar />
             </div>
             <div>
-                <Card number={2} cardIntro={"Attendee Details"} option1={"Get free Ticket"} option2={"Back"}
+                <Card number={2} cardIntro={"Attendee Details"} option1={`Get ${ticketData && ticketData.price} Ticket`} option2={"Back"}
                     handleOption1={handleOption1} handleOption2={handleOption2}>
                     <form onSubmit={handleSubmit} onKeyDown={(e) => e.key === "Enter" && handleSubmit(e)}>
                         <div>
