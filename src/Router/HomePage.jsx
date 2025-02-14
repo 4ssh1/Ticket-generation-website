@@ -1,40 +1,74 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../Components/Navbar'
 import Card from '../Components/Card'
 import { useNavigate } from 'react-router-dom';
 
 function HomePage() {
-    const ticketTitle = [
+  const [AllValues, setAllValues] = useState({
+    price : '',
+    remainingTicket: 0,
+    type: ""
+  })
+  const [selectedPrice, setSelectedPrice] = useState("")
+  const [errorMessage, setErrorMessage]= useState("")
+
+    const [ticketTitle, setTicketTitle] = useState([
        { type: "REGULAR ACCESS",
-         price: "Free"
+         price: "Free",
+         remains: 20
        },
        { type: "VIP ACCESS",
-         price: "$50"
+         price: "$50",
+         remains: 20
        },
        { type: "VVIP ACCESS",
-         price: "$150"
+         price: "$150",
+         remains: 20
        }
-    ];
+    ]);
     const values = 1
-
     const navigate = useNavigate()
+
+    useEffect(()=>{
+      localStorage.setItem("TicketInfo", JSON.stringify(AllValues))
+    },[AllValues])
+
+    function handleOption1() { 
+      setSelectedPrice('')
+    }
+
+    function handleOption2() {
+        if(selectedPrice){
+          navigate("/ticket")
+        }else{
+          setErrorMessage("Choose a price")
+        }
+    }
+
     
-    
+    function updateAll(e, ticket){
+      setSelectedPrice(e.target.value);
+      setAllValues(prev=>({...prev, price : e.target.value, type: ticket.type}))
+    }
     function TicketType() {
-        const [ticketRemaining, setTicketRemaining ] = useState(20)
+
+
+
 
         return (
             <div className='px-2 flex justify-center'>
               <div className='flex sm:justify-between flex-wrap border-2 w-full
                border-teal-950 rounded-2xl sm:py-2 backdrop-brightness-75     ' >
-                 {ticketTitle.map(title=>{
+                 {ticketTitle?.map((title, i)=>{
                       return (
-                          <div key={title.type} className='flex mx-2 border-2 border-teal-950 ticketSelection rounded-2xl w-full
-                           sm:w-40 my-2 sm:justify-between'>
+                          <div key={title.type} className={`flex mx-2 border-2 border-teal-950 ticketSelection rounded-2xl w-full
+                           sm:w-40 my-2 sm:justify-between ${selectedPrice === title.price ? "bg-teal-600" : ""}`} onClick={()=>handleRemainingTicket(i)}>
                               <div className='px-1.5 flex flex-col items-start text-xs sm:text-sm '>
-                                  <p>{title.price}</p>
+                                  <label htmlFor="price">{title.price}</label> <input type="radio" name="price"
+                                   value={title.price} id='price' className='outline-0' checked= {selectedPrice === title.price}
+                                  onChange={(e)=>updateAll(e, title)}/>
                                   <p>{title.type}</p>
-                                  <p>{ticketRemaining} left</p>
+                                  <p>{title.remains} left</p>
                               </div>
                           </div>
                       )
@@ -44,13 +78,7 @@ function HomePage() {
         )
     }
 
-    function handleOption1() {
-        return null
-    }
-
-    function handleOption2() {
-        return navigate("/ticket")
-    }
+   
 
   return (
     <div className='bg h-screen roboto'>
@@ -68,7 +96,7 @@ function HomePage() {
                   <p className='sm:leading-8'>📍[Event Location] || March 15, 2025 | 7:00 PM</p>
               </div>
               <div className='border-t-2 border-teal-900'>
-                  <p className='py-0.5 pl-4 text-start'>Select Ticket Type</p>
+                  <p className='py-0.5 pl-4 text-start'>Select Ticket Type{errorMessage && <span className='pl-5 sm:pl-14 font-mono '>{errorMessage}</span>}</p>
                   <div>
                       <TicketType />
                   </div>

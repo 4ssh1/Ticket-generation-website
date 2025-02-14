@@ -125,14 +125,14 @@ function TicketPage() {
                                             {!formData.image ? (
                                                 <>
                                                     <img src="icon.png" alt="uploadIcon" className="h-8 w-10" />
-                                                    <label htmlFor="file">Drag and Drop or click to upload</label>
+                                                    {loading ? <span>Loading...</span> :<label htmlFor="file">Drag and Drop or click to upload</label>}
                                                     <span className='sr-only' id='image-hint'>Drag and Drop or click to upload, it is required</span>
                                                     <input
                                                         type="file"
                                                         name="file"
                                                         id='file'
                                                         aria-describedby='image-hint'
-                                                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                                                        className="absolute inset-0 w-full h-full opacity-0  cursor-pointer"
                                                         onChange={handleFileUpload}
                                                     />
                                                 </>
@@ -141,18 +141,21 @@ function TicketPage() {
                                                     <img
                                                         src={formData.image}
                                                         alt="uploaded_image"
-                                                        className="object-cover w-full h-full rounded-3xl"
+                                                        className="object-cover w-full h-full rounded-3xl hover:opacity-50"
                                                     />
-                                                    <label htmlFor="file" className=''>Drag and Drop or click to upload</label>
-                                                    <span className='sr-only' id='image-hint'>Drag and Drop or click to upload, it is required</span>                                                   
-                                                    <input
-                                                        type="file"
-                                                        name="file"
-                                                        id='file'
-                                                        aria-describedby='image-hint'
-                                                        className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 cursor-pointer"
-                                                        onChange={handleFileUpload}
-                                                    />
+                                                    <div className=' opacity-0 hover:opacity-50 absolute w-full h-full top-0 flex flex-col justify-center items-center bg-teal-600 rounded-3xl'>
+                                                    <img src="icon.png" alt="uploadIcon" className="h-8 w-10" />
+                                                    {loading ? <span>Loading...</span> :<label htmlFor="file">Drag and Drop or click to upload</label>}
+                                                        <span className='sr-only' id='image-hint'>Drag and Drop or click to upload, it is required</span>
+                                                        <input
+                                                            type="file"
+                                                            name="file"
+                                                            id='file'
+                                                            aria-describedby='image-hint'
+                                                            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                                                            onChange={handleFileUpload}
+                                                        />
+                                                    </div>
                                                 </div>
                                             )}
                                      {errorMessage && <span>{errorMessage.image}</span>}
