@@ -12,7 +12,7 @@ function HomePage() {
   const [selectedPrice, setSelectedPrice] = useState("")
   const [errorMessage, setErrorMessage]= useState("")
 
-    const [ticketTitle, setTicketTitle] = useState([ 
+    const [ticketTitle, setTicketTitle] = useState([
        { type: "REGULAR ACCESS",
          price: "Free",
          remains: 20
@@ -62,7 +62,7 @@ function HomePage() {
                  {ticketTitle?.map((title, i)=>{
                       return (
                           <div key={title.type} className={`flex mx-2 border-2 border-teal-950 ticketSelection rounded-2xl w-full
-                           sm:w-40 my-2 sm:justify-between ${selectedPrice === title.price ? "bg-teal-600" : ""}`} onClick={()=>handleRemainingTicket(i)}>
+                           sm:w-40 my-2 sm:justify-between ${selectedPrice === title.price ? "bg-teal-600" : ""}`}>
                               <div className='px-1.5 flex flex-col items-start text-xs sm:text-sm '>
                                   <label htmlFor="price">{title.price}</label> <input type="radio" name="price"
                                    value={title.price} id='price' className='outline-0' checked= {selectedPrice === title.price}

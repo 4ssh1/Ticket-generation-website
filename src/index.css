@@ -51,6 +51,18 @@ input:focus, textarea:focus, button:hover, a:hover, .ticketSelection:hover{
   background: linear-gradient(to right,var(--active) 40%, var(--darkerColor) 20%);
 }
 
+.transition1{
+  transform: translateY(-10px);
+  height: 4.5px;
+  background: linear-gradient(to right,var(--active) 60%, var(--darkerColor) 20%);
+}
+
+.transition2{
+  transform: translateY(-10px);
+  height: 4.5px;
+  background: linear-gradient(to right,var(--active) 100%, var(--darkerColor) 0%);
+}
+
 th{
   font-size: 10px;
   font-weight: 500;
