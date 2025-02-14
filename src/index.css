@@ -67,6 +67,10 @@ input:focus, textarea:focus, button:hover, a:hover, .ticketSelection:hover{
   font-size: 10px;
 }
 
+.red{
+  color: red;
+}
+
 
 @media (max-width : 600px) {
   .hide4small{

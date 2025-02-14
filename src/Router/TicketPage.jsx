@@ -160,35 +160,35 @@ function TicketPage() {
                                                     </div>
                                                 </div>
                                             )}
-                                     {errorMessage && <span>{errorMessage.image}</span>}
+                                     {errorMessage && <span className='red'>{errorMessage.image}</span>}
                                 </div>
                             </div>
                             <div className='sm:leading-6 flex flex-col items-start text-start px-3  '>
-                                <div className='w-full '>
+                                <div className='w-full py-2 '>
                                     <label htmlFor="name">Enter your name</label>
                                     <div><input type="text" name="name" id='name' className='w-full rounded-lg px-4'
                                         value={formData?.name} onChange={handleChange} autoComplete='false' aria-describedby='name-error' />
                                         <span id='name-error' className='sr-only' role='alert'>Name is required</span>
-                                        {errorMessage && <span>{errorMessage.name}</span>}
+                                        {errorMessage && <span className='red'>{errorMessage.name}</span>}
                                     </div>
                                 </div>
-                                <div className='w-full'>
+                                <div className='w-full py-2' >
                                     <label htmlFor="email" >Enter your email</label>
                                     <div><input type="email" name="email" id='email' className='w-full rounded-lg px-4'
                                         placeholder='✉️ hello@avioflagos.io' autoComplete='false' aria-describedby='email-hint'
                                         value={formData?.email} onChange={handleChange} />
                                         <span className='sr-only' id='email-hint'>Example: name@example.com</span>
-                                        {errorMessage && <span>{errorMessage.email}</span>}
+                                        {errorMessage && <span className='red'>{errorMessage.email}</span>}
                                     </div>
                                 </div>
-                                <div className='w-full'>
+                                <div className='w-full '>
                                     <p>About the Project</p>
                                     <div><textarea name="feedback" cols="30" rows="3" placeholder='Text-area'
                                         className='w-full rounded-lg px-4' aria-describedby='feedback-hint'
                                         value={formData?.feedback} onChange={handleChange}
                                     ></textarea></div>
                                     <span className="sr-only" id='feedback-hint'>This field is required</span>
-                                    {errorMessage && <span>{errorMessage.feedback}</span>}
+                                    {errorMessage && <span className='red'>{errorMessage.feedback}</span>}
                                 </div>
                             </div>
                         </div>
