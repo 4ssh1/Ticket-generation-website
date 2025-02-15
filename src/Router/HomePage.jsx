@@ -89,7 +89,7 @@ function HomePage() {
         <Card number={1} cardIntro={"Ticket Selection"} option1={"Cancel"} option2={"Next"} 
         handleOption1={handleOption1} handleOption2={handleOption2}>
             <div>
-              <div className='bg border-2 rounded-2xl border-teal-900 m-3 py-1'>
+              <div className='bg md:border-2 rounded-2xl border-teal-900 m-3 py-1'>
                   <h2 className='roadFont sm:text-6xl sm:leading-13 tracking-wide text-2xl'>Techember Fest ” 25</h2>
                   <p>Join us for an unforgettable experience at</p>
                   <p>[Event Name]! Secure your spot now.</p>
