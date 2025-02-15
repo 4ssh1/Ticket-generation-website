@@ -58,7 +58,7 @@ function HomePage() {
         return (
             <div className='px-2 flex justify-center'>
               <div className='flex sm:justify-between flex-wrap border-2 w-full
-               border-teal-950 rounded-2xl py-2 backdrop-brightness-75     ' >
+               border-teal-950 rounded-2xl py-2  backdrop-brightness-75     ' >
                  {ticketTitle?.map((title)=>{
                       return (
                           <div key={title.type} className={`flex mx-2 border-2 border-teal-950 ticketSelection rounded-2xl w-full

@@ -15,7 +15,7 @@ function About() {
     
 
   return (
-    <div  className='bg roboto h-screen'>
+    <div  className='bg roboto'>
        <div>
             <Navbar />
         </div>
