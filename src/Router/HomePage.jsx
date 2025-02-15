@@ -41,7 +41,7 @@ function HomePage() {
         if(selectedPrice){
           navigate("/ticket")
         }else{
-          setErrorMessage("Click a button")
+          setErrorMessage("Click any button")
         }
     }
 
@@ -64,9 +64,10 @@ function HomePage() {
                           <div key={title.type} className={`flex mx-2 border-2  border-teal-950 dark:border-teal-950 ticketSelection rounded-2xl w-full
                            sm:w-40 my-2 sm:justify-between ${selectedPrice === title.price ? "bg-teal-600" : ""}`}>
                               <div className='p-1.5 flex flex-col items-start text-xs sm:text-sm leading-7'>
-                                  <label htmlFor="price">{title.price}</label> <input type="radio" name="price"
+                                  <label htmlFor="price">{title.price}</label> <input type="radio" name="price" aria-describedby='ticketHint'
                                    value={title.price} id='price' className='outline-0' checked= {selectedPrice === title.price}
-                                  onChange={(e)=>updateAll(e, title)}/>
+                                  onChange={(e)=>updateAll(e, title)} />{errorMessage && <span className='font-mono red'>{errorMessage}</span>}
+                                  {errorMessage && <span className='sr-only' id='ticketHint'>{errorMessage}</span>}
                                   <p>{title.type}</p>
                                   <p>{title.remains} left</p>
                               </div>
@@ -96,7 +97,7 @@ function HomePage() {
                   <p className='sm:leading-8'>📍[Event Location] || March 15, 2025 | 7:00 PM</p>
               </div>
               <div className='border-t-2 border-teal-900'>
-                  <p className='py-2.5 pl-2 text-start '>Select Ticket Type{errorMessage && <span className='pl-5 sm:pl-14 font-mono red'>{errorMessage}</span>}</p>
+                  <p className='py-2.5 pl-2 text-start '>Select Ticket Type</p>
                   <div>
                       <TicketType />
                   </div>
