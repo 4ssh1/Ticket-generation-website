@@ -95,7 +95,7 @@ function HomePage() {
                   <p>[Event Name]! Secure your spot now.</p>
                   <p className='sm:leading-8'>📍[Event Location] || March 15, 2025 | 7:00 PM</p>
               </div>
-              <div className='md:border-t-2 border-teal-900'>
+              <div className='border-t-2 border-teal-900'>
                   <p className='py-2.5 pl-4 text-start '>Select Ticket Type{errorMessage && <span className='pl-5 sm:pl-14 font-mono red'>{errorMessage}</span>}</p>
                   <div>
                       <TicketType />
