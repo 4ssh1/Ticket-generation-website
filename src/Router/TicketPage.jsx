@@ -111,7 +111,7 @@ function TicketPage() {
 
 
     return (
-        <div className='bg h-screen md:min-h-[105vh]'>
+        <div className='bg h-screen md:min-h-[115vh]'>
             <div>
                 <Navbar />
             </div>

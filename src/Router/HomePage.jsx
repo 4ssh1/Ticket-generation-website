@@ -81,7 +81,7 @@ function HomePage() {
    
 
   return (
-    <div className='bg roboto px-1.5 min-h-[100vh]'>
+    <div className='bg roboto px-1.5 md:min-h-[120vh]'>
       <div>
         <Navbar />
       </div>
