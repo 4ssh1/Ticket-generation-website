@@ -22,7 +22,7 @@ function DownloadTicket() {
       <div>
         <Card number={3} cardIntro={"Ready"} option1={"Book Another Ticket"} option2={"Download Ticket"}
          handleOption1={handleOption1} handleOption2={handleOption2}>
-          <h2>Your Ticket is Booked</h2>
+          <h2 className='pt-2'>Your Ticket is Booked</h2>
           <p>Check your email for a copy or You can <strong>download</strong>.</p>
           <div className=' flex justify-center m-2'>
             <img src="TICKET.svg" alt="Generated ticket" className='ticketheight' />
