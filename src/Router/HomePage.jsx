@@ -56,9 +56,9 @@ function HomePage() {
 
 
         return (
-            <div className='px-2 flex justify-center'>
+            <div className='sm:px-2 px-4 flex justify-center'>
               <div className='flex sm:justify-between flex-wrap border-2 w-full
-               border-teal-950 dark:border-teal-950 rounded-2xl py-2  backdrop-brightness-75     ' >
+               border-teal-950 rounded-2xl py-2 backdrop-brightness-75 px-5 sm:px-0' >
                  {ticketTitle?.map((title)=>{
                       return (
                           <div key={title.type} className={`flex mx-2 border-2  border-teal-950 dark:border-teal-950 ticketSelection rounded-2xl w-full
@@ -81,22 +81,22 @@ function HomePage() {
    
 
   return (
-    <div className='bg roboto px-1.5'>
+    <div className='bg roboto px-1.5 min-h-[100vh]'>
       <div>
         <Navbar />
       </div>
-      <div className='w-full'>
+      <div className='w-full pt-11'>
         <Card number={1} cardIntro={"Ticket Selection"} option1={"Cancel"} option2={"Next"} 
         handleOption1={handleOption1} handleOption2={handleOption2}>
             <div>
-              <div className='bg md:border-2 rounded-2xl border-teal-900 m-3 py-1'>
+              <div className='bg border-2 rounded-2xl border-teal-900 m-3 py-1'>
                   <h2 className='roadFont sm:text-6xl sm:leading-13 tracking-wide text-2xl'>Techember Fest ” 25</h2>
                   <p>Join us for an unforgettable experience at</p>
                   <p>[Event Name]! Secure your spot now.</p>
                   <p className='sm:leading-8'>📍[Event Location] || March 15, 2025 | 7:00 PM</p>
               </div>
               <div className='border-t-2 border-teal-900'>
-                  <p className='py-2.5 pl-4 text-start '>Select Ticket Type{errorMessage && <span className='pl-5 sm:pl-14 font-mono red'>{errorMessage}</span>}</p>
+                  <p className='py-2.5 pl-2 text-start '>Select Ticket Type{errorMessage && <span className='pl-5 sm:pl-14 font-mono red'>{errorMessage}</span>}</p>
                   <div>
                       <TicketType />
                   </div>

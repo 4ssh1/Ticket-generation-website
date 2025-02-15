@@ -10,7 +10,7 @@ function Card({ number, cardIntro, children, option1, option2, handleOption1, ha
           <div>Step {number} / 3</div>
         </div>
         <div className={`${number === 1 && 'transition'}  ${number === 2 && 'transition1'} ${number === 3 && 'transition2'} mx-4`}></div>
-        <div className='border-2 border-teal-900 rounded-2xl mx-3 text-center'>
+        <div className='sm:border-2 border-teal-900 rounded-2xl mx-3 text-center'>
           <div>
             {children}
           </div>

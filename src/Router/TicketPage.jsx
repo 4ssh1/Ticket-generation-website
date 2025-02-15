@@ -115,7 +115,7 @@ function TicketPage() {
             <div>
                 <Navbar />
             </div>
-            <div>
+            <div className='pt-11'>
                 <Card number={2} cardIntro={"Attendee Details"} option2={`Get ${ticketData && ticketData.price} Ticket`} option1={"Back"}
                     handleOption1={handleOption1} handleOption2={handleOption2}>
                     <form onSubmit={handleSubmit} onKeyDown={(e) => e.key === "Enter" && handleSubmit(e)}>

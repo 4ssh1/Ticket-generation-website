@@ -19,7 +19,7 @@ function DownloadTicket() {
       <div>
         <Navbar />
       </div>
-      <div>
+      <div className='pt-11'>
         <Card number={3} cardIntro={"Ready"} option1={"Book Another Ticket"} option2={"Download Ticket"}
          handleOption1={handleOption1} handleOption2={handleOption2}>
           <h2 className='pt-1'>Your Ticket is Booked</h2>
