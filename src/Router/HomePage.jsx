@@ -41,7 +41,7 @@ function HomePage() {
         if(selectedPrice){
           navigate("/ticket")
         }else{
-          setErrorMessage("Choose a price")
+          setErrorMessage("Click a button")
         }
     }
 
