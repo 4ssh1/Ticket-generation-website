@@ -120,7 +120,7 @@ function TicketPage() {
                     handleOption1={handleOption1} handleOption2={handleOption2}>
                     <form onSubmit={handleSubmit} onKeyDown={(e) => e.key === "Enter" && handleSubmit(e)}>
                         <div>
-                            <p>Upload Profile Photo</p>
+                            <p className='py-2'>Upload Profile Photo</p>
                             <div className='backdrop-brightness-50 mx-3 h-28 flex justify-center  '>
                                 <div className=' bg-teal-700 w-1/2 pl-4 md:pl-0 pt-2 z-10 shadow-cyan-900 shadow-2xl rounded-3xl 
                                 flex flex-col justify-center items-center relative'>

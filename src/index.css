@@ -71,7 +71,6 @@ input:focus, textarea:focus, button:hover, a:hover, .ticketSelection:hover{
   color: red;
 }
 
-
 @media (max-width : 600px) {
   .hide4small{
     display: none;

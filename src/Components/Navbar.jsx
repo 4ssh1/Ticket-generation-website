@@ -12,12 +12,12 @@ function Navbar() {
            <span className='logoText'>ticz</span>
         </div>
         <div className='hide4small space-x-10 geo'>
-          <span><a href="#">Events</a></span>
-          <span><a href="#">My Tickets </a></span>
-          <span><Link to={'/aboutpage'}>About Project</Link></span>
+          <button className='navbuttons'>Events</button>
+          <button className=' navbuttons'>My Tickets </button>
+          <span className='navbuttons'><Link to={'/aboutpage'}>About Project</Link></span>
         </div>
         <div>
-          <button className='bg-white black rounded-sm text-sm p-2 geo'>MY TICKETS</button>
+          <button className='bg-white black rounded-sm text-sm p-2 geo after:content-["\2192"] hover:after:content-["\2197"] transition-all ease-in-out'>MY TICKETS </button>
         </div>
       </div>
     </div>
