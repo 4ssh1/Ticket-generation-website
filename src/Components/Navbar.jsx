@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function Navbar() {
-  
+const navigate = useNavigate()  
 
   return (
     <div className='w-full  sm:px-14 py-2 '>
@@ -17,7 +17,8 @@ function Navbar() {
           <span className='navbuttons'><Link to={'/aboutpage'}>About Project</Link></span>
         </div>
         <div>
-          <button className='bg-white black rounded-sm text-sm p-2 geo after:content-["\2192"] hover:after:content-["\2197"] transition-all ease-in-out'>MY TICKETS </button>
+          <button className='bg-white black rounded-sm text-sm p-2 geo after:content-["\2192"] hover:after:content-["\2197"] transition-all ease-in-out
+          ' onClick={()=>navigate("/alltickets")}>MY TICKETS </button>
         </div>
       </div>
     </div>

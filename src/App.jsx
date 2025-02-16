@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import HomePage from "./Router/HomePage"
-import TicketPage from "./Router/TicketPage"
-import DownloadTicket from "./Router/DownloadTicket"
+import FormPage from "./Router/FormPage"
+import DownloadTicketPage from "./Router/DownloadTicketPage"
 import About from "./Router/About"
+import AllTickets from "./Router/AllTickets"
 
 function App() {
 
@@ -11,9 +12,10 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path="/" element= {<HomePage />}/>
-      <Route path="/ticket" element={<TicketPage />}/>
-      <Route path="/lastPage" element={<DownloadTicket />}/>
+      <Route path="/ticket" element={<FormPage />}/>
+      <Route path="/lastPage" element={<DownloadTicketPage />}/>
       <Route path="/aboutpage" element={<About />}/>
+      <Route path="/alltickets" element={<AllTickets />}/>
     </Routes>
     </BrowserRouter>
     </>
