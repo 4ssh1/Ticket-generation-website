@@ -2,7 +2,8 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navbar from '../Components/Navbar'
 import Card from '../Components/Card'
-function DownloadTicket() {
+
+function DownloadTicketPage() {
   const navigate = useNavigate()
   const validatedFormData = JSON.parse(localStorage.getItem("UserInfo"))
   const ticketPrice = JSON.parse(localStorage.getItem("CurrentPrice"))
@@ -67,4 +68,4 @@ function DownloadTicket() {
   )
 }
 
-export default DownloadTicket
+export default DownloadTicketPage

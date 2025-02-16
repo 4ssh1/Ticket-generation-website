@@ -3,7 +3,7 @@ import Navbar from '../Components/Navbar'
 import Card from '../Components/Card'
 import { useNavigate } from 'react-router-dom'
 
-function TicketPage() {
+function FormPage() {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -199,4 +199,4 @@ function TicketPage() {
     )
 }
 
-export default TicketPage
+export default FormPage
