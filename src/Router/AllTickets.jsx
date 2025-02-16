@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom'
 function AllTickets() {
     const [allTickets, setAllTickets] = useState([])
     const navigate = useNavigate()
+    const allForms = JSON.parse(localStorage.getItem('allUsers'))
+    const allTicketValues = JSON.parse(localStorage.getItem("TicketInfo"))
 
     useEffect(()=>{
         const availableTickets = JSON.parse(localStorage.getItem("TicketInfo")) || []

@@ -24,9 +24,9 @@ function DownloadTicketPage() {
       <div className='pt-11'>
         <Card number={3} cardIntro={"Ready"} option1={"Book Another Ticket"} option2={"Download Ticket"}
          handleOption1={handleOption1} handleOption2={handleOption2}>
-          <h2 className='pt-1'>Your Ticket is Booked</h2>
+          <h2 className='py-2'>Your Ticket is Booked</h2>
           <p>Check your email for a copy or You can <strong>download</strong>.</p>
-          <div className=' flex justify-center mt-2'>
+          <div className=' flex justify-center mt-5 '>
             <img src="TICKET.svg" alt="Generated ticket" className='ticketheight' />
             <div className='absolute m-3 activeborder max-w-36 text-xs rounded-md' id='ticketDownload'>
               <h2 className='roadFont font-bold text-lg'>Techember Fest ” 25</h2>

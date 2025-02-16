@@ -162,7 +162,7 @@ function FormPage() {
                                 </div>
                             </div>
                             <div className='sm:leading-6 flex flex-col items-start text-start px-3  '>
-                                <div className='w-full py-2 '>
+                                <div className='w-full py-3 '>
                                     <label htmlFor="name">Enter your name</label>
                                     <div><input type="text" name="name" id='name' className='w-full rounded-lg px-4'
                                         value={formData?.name} onChange={handleChange} autoComplete='false' aria-describedby='name-error' />
@@ -170,7 +170,7 @@ function FormPage() {
                                         {errorMessage && <span className='red'>{errorMessage.name}</span>}
                                     </div>
                                 </div>
-                                <div className='w-full py-2' >
+                                <div className='w-full py-3' >
                                     <label htmlFor="email" >Enter your email</label>
                                     <div><input type="email" name="email" id='email' className='w-full rounded-lg px-4'
                                         placeholder='✉️ hello@avioflagos.io' autoComplete='false' aria-describedby='email-hint'
@@ -179,7 +179,7 @@ function FormPage() {
                                         {errorMessage && <span className='red'>{errorMessage.email}</span>}
                                     </div>
                                 </div>
-                                <div className='w-full '>
+                                <div className='w-full py-3 '>
                                     <p>About the Project</p>
                                     <div><textarea name="feedback" cols="30" rows="3" placeholder='Text-area'
                                         className='w-full rounded-lg px-4' aria-describedby='feedback-hint'
