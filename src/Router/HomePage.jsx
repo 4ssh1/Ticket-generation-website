@@ -47,13 +47,14 @@ function HomePage() {
       }
     }
     
-    function updateAll(e, ticket){
+    function updateAll(e, ticket) {
       setSelectedPrice(e.target.value);
       setTicketTier(ticket.type);
-      // setAllValues(prev => {
-      //   const updatedValues = [...prev, { price: e.target.value, type: ticket.type }];
-      //   return updatedValues;
-      // });
+      setAllValues(prev => {
+        const updatedValues = prev.filter(item => item.type !== ticket.type);
+        updatedValues.push({ price: e.target.value, type: ticket.type });
+        return updatedValues;
+      });
     }
 
     function TicketType() {
