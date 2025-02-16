@@ -4,15 +4,12 @@ import Card from '../Components/Card'
 import { useNavigate } from 'react-router-dom';
 
 function HomePage() {
-  const [AllValues, setAllValues] = useState({
-    price : '',
-    remainingTicket: 0,
-    type: ""
-  })
+  const [AllValues, setAllValues] = useState([])
   const [selectedPrice, setSelectedPrice] = useState("")
   const [errorMessage, setErrorMessage]= useState("")
+  const [ticketTier, seTicketTier] = useState("")
 
-    const [ticketTitle, setTicketTitle] = useState([
+    const ticketTitle = [
        { type: "REGULAR ACCESS",
          price: "Free",
          remains: 20
@@ -25,36 +22,40 @@ function HomePage() {
          price: "$150",
          remains: 20
        }
-    ]);
-    const values = 1
+    ];
     const navigate = useNavigate()
 
+    
     useEffect(()=>{
-      localStorage.setItem("TicketInfo", JSON.stringify(AllValues))
-    },[AllValues])
+      const savedValues = JSON.parse(localStorage.getItem("TicketInfo")) || []
+      setAllValues(savedValues)
+    },[])
 
     function handleOption1() { 
       setSelectedPrice('')
+      // console.log(ticketTier)
     }
 
     function handleOption2() {
         if(selectedPrice){
+          localStorage.setItem("TicketInfo", JSON.stringify(AllValues))
+          localStorage.setItem('CurrentPrice',JSON.stringify(selectedPrice))
+          localStorage.setItem('CurrentTier',JSON.stringify(ticketTier))
           navigate("/ticket")
         }else{
           setErrorMessage("Click any button")
         }
+       
     }
 
     
     function updateAll(e, ticket){
       setSelectedPrice(e.target.value);
-      setAllValues(prev=>({...prev, price : e.target.value, type: ticket.type}))
+      seTicketTier(ticket.type)
+      setAllValues(prev=>([ ...prev, { price : e.target.value, type: ticket.type}]))
     }
+
     function TicketType() {
-
-
-
-
         return (
             <div className='sm:px-2 px-4 flex justify-center'>
               <div className='flex sm:justify-between flex-wrap border-2 w-full
@@ -105,7 +106,7 @@ function HomePage() {
                       <p className='text-start pl-4 py-2'>Number of Tickets</p>
                       <div className='mx-3'>
                           <select type="number" name="tickets" className='border-slate-800 border-2 w-full pl-5'>
-                                  <option value={values} className='bg-teal-900'>{values}</option>
+                                  <option value={1} className='bg-teal-900'>1</option>
                           </select></div>
                   </div>
               </div>

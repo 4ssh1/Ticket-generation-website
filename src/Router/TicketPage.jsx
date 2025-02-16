@@ -10,17 +10,17 @@ function TicketPage() {
         feedback: '',
         image: ''
     })
-    const [validatedForm, setValidatedForm]= useState({
-        name: '',
-        email: '',
-        feedback: '',
-        image: ''
-    })
+    // const [validatedForm, setValidatedForm]= useState({
+    //     name: '',
+    //     email: '',
+    //     feedback: '',
+    //     image: ''
+    // })
     const [errorMessage, setErrorMessage] = useState({})
     const [loading, setLoading] = useState(false)
     const [cloudImage, setCloudImage] = useState('')
     const navigate = useNavigate()
-    const ticketData = JSON.parse(localStorage.getItem("TicketInfo"))
+    const ticketPrice = JSON.parse(localStorage.getItem("CurrentPrice"))
 
 
     useEffect(() => {
@@ -73,7 +73,7 @@ function TicketPage() {
         setErrorMessage(error);
     
         if (Object.keys(error).length === 0) {
-            setValidatedForm(formData);
+            // setValidatedForm(formData);
             navigate('/lastPage');
         }
     }
@@ -116,7 +116,7 @@ function TicketPage() {
                 <Navbar />
             </div>
             <div className='pt-11'>
-                <Card number={2} cardIntro={"Attendee Details"} option2={`Get ${ticketData && ticketData.price} Ticket`} option1={"Back"}
+                <Card number={2} cardIntro={"Attendee Details"} option2={`Get ${ticketPrice} Ticket`} option1={"Back"}
                     handleOption1={handleOption1} handleOption2={handleOption2}>
                     <form onSubmit={handleSubmit} onKeyDown={(e) => e.key === "Enter" && handleSubmit(e)}>
                         <div>
