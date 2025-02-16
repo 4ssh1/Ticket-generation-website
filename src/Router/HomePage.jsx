@@ -48,6 +48,10 @@ function HomePage() {
        
     }
 
+    function handleOption2() {
+      setSelectedPrice("")
+      setErrorMessage("")
+    }
     
     function updateAll(e, ticket){
       setSelectedPrice(e.target.value);
