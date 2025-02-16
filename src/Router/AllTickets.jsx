@@ -1,8 +1,11 @@
 import React from 'react'
 import {useEffect, useState} from 'react'
+import Navbar from '../Components/Navbar'
+import { useNavigate } from 'react-router-dom'
 
 function AllTickets() {
     const [allTickets, setAllTickets] = useState([])
+    const navigate = useNavigate()
 
     useEffect(()=>{
         const availableTickets = JSON.parse(localStorage.getItem("TicketInfo")) || []
@@ -10,7 +13,13 @@ function AllTickets() {
     }, [])
 
   return (
-    <div className='bg h-screen md:min-h-[115vh]'>
+    <div className='bg h-screen md:min-h-[110vh]'>
+         <div>
+            <Navbar />
+         </div>
+         <div className='m-5'>
+            <button className='border-2 border-teal-500 rounded-lg p-3 hover:opacity-20' onClick={()=>navigate('/')}>Back to Home</button>
+         </div>
          <div className=' flex justify-center'>
          <img src="TICKET.svg" alt="Generated ticket" className='ticketheight' />
          <div className='absolute m-3 activeborder max-w-36 text-xs rounded-md' id='ticketDownload'>

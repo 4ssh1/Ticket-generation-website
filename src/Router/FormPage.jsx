@@ -10,12 +10,7 @@ function FormPage() {
         feedback: '',
         image: ''
     })
-    // const [validatedForm, setValidatedForm]= useState({
-    //     name: '',
-    //     email: '',
-    //     feedback: '',
-    //     image: ''
-    // })
+    const [validatedForm, setValidatedForm]= useState([])
     const [errorMessage, setErrorMessage] = useState({})
     const [loading, setLoading] = useState(false)
     const [cloudImage, setCloudImage] = useState('')
@@ -73,7 +68,10 @@ function FormPage() {
         setErrorMessage(error);
     
         if (Object.keys(error).length === 0) {
-            // setValidatedForm(formData);
+            const all = JSON.parse(localStorage.getItem("allUsers"))
+            const update = [...all, formData]
+            setValidatedForm(update);
+            localStorage.setItem("allUsers", JSON.stringify(update))
             navigate('/lastPage');
         }
     }
