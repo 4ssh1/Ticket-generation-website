@@ -7,7 +7,7 @@ function HomePage() {
   const [AllValues, setAllValues] = useState([])
   const [selectedPrice, setSelectedPrice] = useState("")
   const [errorMessage, setErrorMessage]= useState("")
-  const [ticketTier, seTicketTier] = useState("")
+  const [ticketTier, setTicketTier] = useState("")
 
     const ticketTitle = [
        { type: "REGULAR ACCESS",
@@ -51,8 +51,8 @@ function HomePage() {
     
     function updateAll(e, ticket){
       setSelectedPrice(e.target.value);
-      seTicketTier(ticket.type)
-      setAllValues(prev=>([ ...prev, { price : e.target.value, type: ticket.type}]))
+      setTicketTier(ticket.type);
+      setAllValues(prev=>([ ...prev, { price : e.target.value, type: ticket.type}]));
     }
 
     function TicketType() {
