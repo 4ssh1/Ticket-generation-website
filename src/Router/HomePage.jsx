@@ -27,16 +27,16 @@ function HomePage() {
 
     
     useEffect(()=>{
-      const savedValues = JSON.parse(localStorage.getItem("TicketInfo")) || []
-      setAllValues(savedValues)
+      try {
+        const savedValues = JSON.parse(localStorage.getItem("TicketInfo")) || [];
+        setAllValues(savedValues);
+      } catch (error) {
+        console.error("Error reading from localStorage", error);
+      }
     },[])
 
     function handleOption1() { 
       setSelectedPrice('')
-      // console.log(ticketTier)
-    }
-
-    function handleOption2() {
         if(selectedPrice){
           localStorage.setItem("TicketInfo", JSON.stringify(AllValues))
           localStorage.setItem('CurrentPrice',JSON.stringify(selectedPrice))
@@ -52,7 +52,7 @@ function HomePage() {
     function updateAll(e, ticket){
       setSelectedPrice(e.target.value);
       setTicketTier(ticket.type);
-      setAllValues(prev=>([ ...prev, { price : e.target.value, type: ticket.type}]));
+      setAllValues(prev=>([ ...prev, { price: e.target.value, type: ticket.type}]));
     }
 
     function TicketType() {
