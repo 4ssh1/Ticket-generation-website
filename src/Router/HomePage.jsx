@@ -26,14 +26,10 @@ function HomePage() {
     const navigate = useNavigate()
 
     
-    // useEffect(()=>{
-    //   try {
-    //     const savedValues = JSON.parse(localStorage.getItem("TicketInfo")) || [];
-    //     setAllValues(savedValues);
-    //   } catch (error) {
-    //     console.error("Error reading from localStorage", error);
-    //   }
-    // },[])
+    useEffect(()=>{
+        const savedValues = JSON.parse(localStorage.getItem("TicketInfo")) || [];
+        setAllValues(savedValues);
+    },[])
 
     function handleOption1() { 
       setSelectedPrice('')
