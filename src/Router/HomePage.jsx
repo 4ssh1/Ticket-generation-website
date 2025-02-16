@@ -38,9 +38,9 @@ function HomePage() {
 
     function handleOption2() {
       if(selectedPrice){
-        // localStorage.setItem("TicketInfo", JSON.stringify(AllValues))
-        // localStorage.setItem('CurrentPrice',JSON.stringify(selectedPrice))
-        // localStorage.setItem('CurrentTier',JSON.stringify(ticketTier))
+        localStorage.setItem("TicketInfo", JSON.stringify(AllValues));
+        localStorage.setItem('CurrentPrice',JSON.stringify(selectedPrice));
+        localStorage.setItem('CurrentTier',JSON.stringify(ticketTier));
         navigate("/ticket")
       }else{
         setErrorMessage("Click any button")
