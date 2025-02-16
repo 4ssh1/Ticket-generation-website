@@ -10,12 +10,14 @@ function AllTickets() {
     }, [])
 
   return (
-    <div>
+    <div className='bg h-screen md:min-h-[115vh]'>
+         <div className=' flex justify-center'>
+         <img src="TICKET.svg" alt="Generated ticket" className='ticketheight' />
          <div className='absolute m-3 activeborder max-w-36 text-xs rounded-md' id='ticketDownload'>
               <h2 className='roadFont font-bold text-lg'>Techember Fest ” 25</h2>
               <p>📍04 Rumen Road, Ikoyi, Lagos</p>
               <p>📆 March 15, 2025 | 7:00 PM</p>
-              <img src={validatedFormData.image} alt="Validated image" className='h-16 block mx-auto rounded-sm mb-1'/>
+              <img  alt="Validated image" className='h-16 block mx-auto rounded-sm mb-1'/>
               <div className= 'small pt-1 leading-5 px-2'>
                 <div>
                   <div className='flex justify-between items-start'>
@@ -24,8 +26,8 @@ function AllTickets() {
                       <p>Email: </p>
                     </div>
                     <div>
-                      <p>{validatedFormData.name}</p>
-                      <p>{validatedFormData.email}</p>
+                      <p>{}</p>
+                      <p>{}</p>
                     </div>
                   </div>
                 </div>
@@ -35,8 +37,8 @@ function AllTickets() {
                     <p>Ticket:</p>
                   </div>
                   <div>
-                    <p>{ticketType}</p>
-                    <p>{ticketPrice}</p>
+                    <p>{}</p>
+                    <p>{}</p>
                   </div>
                 </div>
               </div>
@@ -44,6 +46,7 @@ function AllTickets() {
               <img src="barCode.jpg" alt="bar-Code" className='w-full h-full' />
             </div>
             </div>
+        </div>
     </div>
   )
 }

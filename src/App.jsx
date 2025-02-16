@@ -3,6 +3,7 @@ import HomePage from "./Router/HomePage"
 import TicketPage from "./Router/TicketPage"
 import DownloadTicket from "./Router/DownloadTicket"
 import About from "./Router/About"
+import AllTickets from "./Router/AllTickets"
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <Route path="/ticket" element={<TicketPage />}/>
       <Route path="/lastPage" element={<DownloadTicket />}/>
       <Route path="/aboutpage" element={<About />}/>
+      <Route path="/alltickets" element={<AllTickets />}/>
     </Routes>
     </BrowserRouter>
     </>
