@@ -105,7 +105,7 @@ function FormPage() {
 
 
     return (
-        <div className='bg h-screen md:min-h-[115vh]'>
+        <div className='bg h-screen md:min-h-[120vh]'>
             <div>
                 <Navbar />
             </div>
