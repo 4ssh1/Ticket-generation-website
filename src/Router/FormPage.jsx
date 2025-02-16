@@ -68,10 +68,6 @@ function FormPage() {
         setErrorMessage(error);
     
         if (Object.keys(error).length === 0) {
-            const all = JSON.parse(localStorage.getItem("allUsers"))
-            const update = [...all, formData]
-            setValidatedForm(update);
-            localStorage.setItem("allUsers", JSON.stringify(update))
             navigate('/lastPage');
         }
     }
