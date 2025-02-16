@@ -3,16 +3,14 @@ import {useEffect, useState} from 'react'
 import Navbar from '../Components/Navbar'
 import { useNavigate } from 'react-router-dom'
 
-function AllTickets() {
-    const [allTickets, setAllTickets] = useState([])
-    const navigate = useNavigate()
-    const allForms = JSON.parse(localStorage.getItem('allUsers'))
-    const allTicketValues = JSON.parse(localStorage.getItem("TicketInfo"))
 
-    useEffect(()=>{
-        const availableTickets = JSON.parse(localStorage.getItem("TicketInfo")) || []
-        setAllTickets(availableTickets)
-    }, [])
+function AllTickets() {
+  const navigate = useNavigate()
+    const validatedFormData = JSON.parse(localStorage.getItem("UserInfo"))
+    const ticketPrice = JSON.parse(localStorage.getItem("CurrentPrice"))
+    const ticketType = JSON.parse(localStorage.getItem("CurrentTier"))
+  
+   
 
   return (
     <div className='bg h-screen md:min-h-[110vh]'>
@@ -37,8 +35,8 @@ function AllTickets() {
                       <p>Email: </p>
                     </div>
                     <div>
-                      <p>{}</p>
-                      <p>{}</p>
+                      <p>{validatedFormData.name}</p>
+                      <p>{validatedFormData.email}</p>
                     </div>
                   </div>
                 </div>
@@ -48,8 +46,8 @@ function AllTickets() {
                     <p>Ticket:</p>
                   </div>
                   <div>
-                    <p>{}</p>
-                    <p>{}</p>
+                    <p>{ticketType}</p>
+                    <p>{ticketPrice}</p>
                   </div>
                 </div>
               </div>
