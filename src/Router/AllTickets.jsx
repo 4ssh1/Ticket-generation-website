@@ -1,24 +1,30 @@
 import React from 'react'
 import Navbar from '../Components/Navbar'
 import { useNavigate } from 'react-router-dom'
+import Card from '../Components/Card'
 
 
 function AllTickets() {
   const navigate = useNavigate()
-  // const validatedFormData = JSON.parse(localStorage.getItem("UserInfo"))
   const allTicket = JSON.parse(localStorage.getItem("allTicket"))
-  // console.log(ticket)
+
+  const myButtons = [
+    {
+      title: "Back to Home",
+      handle: ()=>navigate("/")
+    }
+  ]
 
   return (
-    <div className='bg h-screen md:min-h-[110vh]'>
+    <div className='bg h-screen md:h-max'>
       <div>
         <Navbar />
       </div>
-
+      <Card buttons={myButtons} number={3} cardIntro={"Tickets"}>
       {allTicket.length == 0 ?
         <h1 className='text-center text-2xl mt-8'>No ticket available</h1>
         :
-        <div>
+        <div className='flex px-6 gap-6 flex-wrap'>
           {
             allTicket.map((tic) => (
               <div className=' flex justify-center mt-15'>
@@ -60,11 +66,8 @@ function AllTickets() {
             ))
           }
         </div>
-      }        
-      <div className='absolute flex justify-center space-x-8 bottom-10 w-full'>
-        <button className='border-2 border-teal-500 rounded-lg p-3 hover:opacity-20' onClick={() => navigate('/')}>Back to Home </button>
-        <button className='border-2 border-teal-500 rounded-lg p-3 hover:opacity-20' onClick={() => navigate('/ticket')}>Ticket Form </button>
-      </div>
+      }   
+      </Card>     
     </div>
   )
 }

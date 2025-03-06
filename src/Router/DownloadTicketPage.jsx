@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navbar from '../Components/Navbar'
 import Card from '../Components/Card'
 
 function DownloadTicketPage() {
   const navigate = useNavigate()
-  const validatedFormData = JSON.parse(localStorage.getItem("UserInfo"))
-  const ticket = JSON.parse(localStorage.getItem("sTicket"))
+  const [ticket, setTicket] = useState({})
+
+  useEffect(()=>{
+    const alltickets = JSON.parse(localStorage.getItem("allTicket"));
+    const index = [alltickets.length  - 1];
+    setTicket(alltickets[index])
+  }, [])
 
 
   function handleOption1() {
@@ -16,14 +21,24 @@ function DownloadTicketPage() {
     return null
   }
 
+  const myButtons = [
+    {
+      title: "Book Another Ticket",
+      handle: handleOption1
+    },
+    {
+      title: "Download Ticket",
+      handle: handleOption2
+    },
+  ]
+
   return (
     <div className='bg h-screen md:min-h-[120vh]'>
       <div>
         <Navbar />
       </div>
       <div className='pt-11'>
-        <Card number={3} cardIntro={"Ready"} option1={"Book Another Ticket"} option2={"Download Ticket"}
-         handleOption1={handleOption1} handleOption2={handleOption2}>
+        <Card number={3} cardIntro={"Ready"} buttons={myButtons}>
           <h2 className='py-2'>Your Ticket is Booked</h2>
           <p>Check your email for a copy or You can <strong>download</strong>.</p>
           <div className=' flex justify-center mt-5 '>
@@ -32,7 +47,7 @@ function DownloadTicketPage() {
               <h2 className='roadFont font-bold text-lg'>Techember Fest ” 25</h2>
               <p>📍04 Rumen Road, Ikoyi, Lagos</p>
               <p>📆 March 15, 2025 | 7:00 PM</p>
-              <img src={validatedFormData.image} alt="Validated image" className='h-16 block mx-auto rounded-sm mb-1'/>
+              <img src={ticket?.image} alt="Validated image" className='h-16 block mx-auto rounded-sm mb-1'/>
               <div className= 'small pt-1 leading-5 px-2'>
                 <div>
                   <div className='flex justify-between items-start'>
@@ -41,8 +56,8 @@ function DownloadTicketPage() {
                       <p>Email: </p>
                     </div>
                     <div>
-                      <p>{validatedFormData.name}</p>
-                      <p>{validatedFormData.email}</p>
+                      <p>{ticket?.name}</p>
+                      <p>{ticket?.email}</p>
                     </div>
                   </div>
                 </div>
@@ -52,8 +67,8 @@ function DownloadTicketPage() {
                     <p>Ticket:</p>
                   </div>
                   <div>
-                    <p>{ticket.type}</p>
-                    <p>{ticket.price}</p>
+                    <p>{ticket?.type}</p>
+                    <p>{ticket?.price}</p>
                   </div>
                 </div>
               </div>

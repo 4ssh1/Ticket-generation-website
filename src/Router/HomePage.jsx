@@ -39,7 +39,7 @@ function HomePage() {
         localStorage.setItem('sTicket',JSON.stringify(sTicket));
         navigate("/ticket")
       }else{
-        setErrorMessage("Click any button")
+        setErrorMessage("Choose a price")
       }
     }
     
@@ -55,9 +55,9 @@ function HomePage() {
                  {ticketTitle?.map((singleTicket)=>{
                       return (
                           <div key={singleTicket.type} className={`flex mx-2 border-2  border-teal-950 dark:border-teal-950 ticketSelection rounded-2xl w-full
-                           sm:w-40 my-2 sm:justify-between ${sTicket.price === singleTicket.price ? "bg-teal-600" : ""}`} onClick={(e)=>updateAll(singleTicket)}>
+                           sm:w-40 my-2 sm:justify-between ${sTicket.price === singleTicket.price ? "bg-teal-600" : ""}`} onClick={()=>updateAll(singleTicket)}>
                               <div className='p-1.5 flex flex-col items-start text-xs sm:text-sm leading-7'>
-                                  <label htmlFor="price">{singleTicket.price}</label>
+                                  <span >{singleTicket.price}</span  >
                                    {errorMessage && <span className='font-mono red'>{errorMessage}</span>}
                                   {errorMessage && <span className='sr-only' id='ticketHint'>{errorMessage}</span>}
                                   <p>{singleTicket.type}</p>
@@ -85,7 +85,7 @@ function HomePage() {
    
 
   return (
-    <div className='bg roboto px-1.5 md:min-h-[120vh]'>
+    <div className='bg roboto px-1.5 md:min-h-[130vh]'>
       <div>
         <Navbar />
       </div>

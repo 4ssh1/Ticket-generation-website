@@ -59,9 +59,9 @@ function FormPage() {
             error.feedback = "Description is required";
         }
     
-        // if (!formData.image) {
-        //     error.image = "No image uploaded";
-        // }
+        if (!formData.image) {
+            error.image = "No image uploaded";
+        }
     
         setErrorMessage(error);
     
@@ -117,7 +117,7 @@ function FormPage() {
 
 
     return (
-        <div className='bg h-screen md:min-h-[120vh]'>
+        <div className='bg h-screen md:min-h-[140vh]'>
             <div>
                 <Navbar />
             </div>
@@ -146,7 +146,7 @@ function FormPage() {
                                             ) : (
                                                 <div className="absolute inset-0 w-full h-full">
                                                     <img
-                                                        src={formData.image}
+                                                        src={formData.image ?? ""}
                                                         alt="uploaded_image"
                                                         className="object-cover w-full h-full rounded-3xl hover:opacity-50"
                                                     />
@@ -172,7 +172,7 @@ function FormPage() {
                                 <div className='w-full py-3 '>
                                     <label htmlFor="name">Enter your name</label>
                                     <div><input type="text" name="name" id='name' className='w-full rounded-lg px-4'
-                                        value={formData?.name} onChange={handleChange} autoComplete='false' aria-describedby='name-error' />
+                                        value={formData?.name ?? ""} onChange={handleChange} autoComplete='false' aria-describedby='name-error' />
                                         <span id='name-error' className='sr-only' role='alert'>Name is required</span>
                                         {errorMessage && <span className='red'>{errorMessage.name}</span>}
                                     </div>
@@ -181,7 +181,7 @@ function FormPage() {
                                     <label htmlFor="email" >Enter your email</label>
                                     <div><input type="email" name="email" id='email' className='w-full rounded-lg px-4'
                                         placeholder='✉️ hello@avioflagos.io' autoComplete='false' aria-describedby='email-hint'
-                                        value={formData?.email} onChange={handleChange} />
+                                        value={formData?.email ?? ""} onChange={handleChange} />
                                         <span className='sr-only' id='email-hint'>Example: name@example.com</span>
                                         {errorMessage && <span className='red'>{errorMessage.email}</span>}
                                     </div>
@@ -190,7 +190,7 @@ function FormPage() {
                                     <p>About the Project</p>
                                     <div><textarea name="feedback" cols="30" rows="3" placeholder='Text-area'
                                         className='w-full rounded-lg px-4' aria-describedby='feedback-hint'
-                                        value={formData?.feedback} onChange={handleChange}
+                                        value={formData?.feedback ?? ""} onChange={handleChange}
                                     ></textarea></div>
                                     <span className="sr-only" id='feedback-hint'>This field is required</span>
                                     {errorMessage && <span className='red'>{errorMessage.feedback}</span>}
