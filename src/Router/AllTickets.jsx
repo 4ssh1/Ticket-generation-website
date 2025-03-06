@@ -16,7 +16,7 @@ function AllTickets() {
   ]
 
   return (
-    <div className='bg h-screen md:h-max'>
+    <div className='bg h-max'>
       <div>
         <Navbar />
       </div>
