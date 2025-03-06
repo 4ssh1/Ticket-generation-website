@@ -6,8 +6,8 @@ import Card from '../Components/Card'
 function DownloadTicketPage() {
   const navigate = useNavigate()
   const validatedFormData = JSON.parse(localStorage.getItem("UserInfo"))
-  const ticketPrice = JSON.parse(localStorage.getItem("CurrentPrice"))
-  const ticketType = JSON.parse(localStorage.getItem("CurrentTier"))
+  const ticket = JSON.parse(localStorage.getItem("sTicket"))
+
 
   function handleOption1() {
      navigate("/")
@@ -52,8 +52,8 @@ function DownloadTicketPage() {
                     <p>Ticket:</p>
                   </div>
                   <div>
-                    <p>{ticketType}</p>
-                    <p>{ticketPrice}</p>
+                    <p>{ticket.type}</p>
+                    <p>{ticket.price}</p>
                   </div>
                 </div>
               </div>

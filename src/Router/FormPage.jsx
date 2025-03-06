@@ -10,28 +10,26 @@ function FormPage() {
         feedback: '',
         image: ''
     })
-    const [validatedForm, setValidatedForm]= useState([])
     const [errorMessage, setErrorMessage] = useState({})
     const [loading, setLoading] = useState(false)
     const [cloudImage, setCloudImage] = useState('')
     const navigate = useNavigate()
-    const ticketPrice = JSON.parse(localStorage.getItem("CurrentPrice"))
-
+    const [ticket, setTicket] = useState()
 
     useEffect(() => {
-        const usersInfo = JSON.parse(localStorage.getItem("UserInfo")) || {
-            name: '',
-            email: '',
-            feedback: '',
-            image: ""
-        };
-        setFormData(usersInfo);
+        const ticketdetail = JSON.parse(localStorage.getItem("sTicket"))
+        if(!ticketdetail) {
+            return navigate("/")
+        }
+        setTicket(ticketdetail)
+        setFormData({name:ticketdetail?.name, email:ticketdetail?.email, feedback:ticketdetail?.feedback, image: ticketdetail?.image});
     }, []);
 
 
     useEffect(() => {
         if (formData.name || formData.email || formData.feedback || formData.image) {
-            localStorage.setItem("UserInfo", JSON.stringify(formData));
+            setTicket({...ticket, ...formData})
+            localStorage.setItem("sTicket", JSON.stringify({...ticket, ...formData}));
         }
     }, [formData]);
 
@@ -61,13 +59,18 @@ function FormPage() {
             error.feedback = "Description is required";
         }
     
-        if (!formData.image) {
-            error.image = "No image uploaded";
-        }
+        // if (!formData.image) {
+        //     error.image = "No image uploaded";
+        // }
     
         setErrorMessage(error);
     
         if (Object.keys(error).length === 0) {
+            let allTicket = JSON.parse(localStorage.getItem("allTicket")) ?? []
+            allTicket = [...allTicket, ticket]
+            localStorage.removeItem("sTicket")
+            localStorage.setItem("allTicket", JSON.stringify(allTicket))
+            console.log(ticket, allTicket)
             navigate('/lastPage');
         }
     }
@@ -101,7 +104,16 @@ function FormPage() {
         setLoading(false)
     }
 
-
+    const mybuttons = [
+        {
+          title : "Back", 
+          handle : handleOption1
+        }, 
+        {
+          title: `Get ${ticket?.price ?? ''} ticket`, 
+          handle : handleOption2
+        }
+      ]
 
 
     return (
@@ -110,8 +122,7 @@ function FormPage() {
                 <Navbar />
             </div>
             <div className='pt-11'>
-                <Card number={2} cardIntro={"Attendee Details"} option2={`Get ${ticketPrice} Ticket`} option1={"Back"}
-                    handleOption1={handleOption1} handleOption2={handleOption2}>
+                <Card number={2} cardIntro={"Attendee Details"} buttons={mybuttons}>
                     <form onSubmit={handleSubmit} onKeyDown={(e) => e.key === "Enter" && handleSubmit(e)}>
                         <div>
                             <p className='py-2'>Upload Profile Photo</p>

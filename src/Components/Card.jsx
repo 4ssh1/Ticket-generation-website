@@ -1,7 +1,7 @@
 import React from 'react'
 import CardButtons from './CardButtons'
 
-function Card({ number, cardIntro, children, option1, option2, handleOption1, handleOption2 }) {
+function Card({ number, cardIntro, children, buttons }) {
   return (
     <div className='sm:flex sm:justify-center sm:items-center'>
       <div className={`border-2 border-teal-900 sm:w-1/2 rounded-4xl py-8 sm:leading-7 mt-1`}>
@@ -14,8 +14,7 @@ function Card({ number, cardIntro, children, option1, option2, handleOption1, ha
           <div>
             {children}
           </div>
-          <CardButtons option1={option1} option2={option2} handleOption1={handleOption1} 
-          handleOption2={handleOption2} />
+          <CardButtons buttons={buttons} />
         </div>
       </div>
     </div>
