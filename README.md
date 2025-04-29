@@ -28,7 +28,7 @@ To get started, follow these steps:
    ```
 
 
-# TODO_LIST Project Structure
+# Ticket Generation Project Structure
 
 ```text
 TicketGeneration/
