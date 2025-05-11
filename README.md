@@ -2,6 +2,18 @@
 
 A web-based application for generating tickets,  built using React.js and styled with Tailwind CSS. This project showcases a modern and responsive task management system.
 
+## 🎟️ Ticketing App Features
+
+- ✅ Select tickets based on available tiers  
+- 📤 Upload images securely using [Cloudinary](https://cloudinary.com/)  
+-  View all ticket options at a glance  
+- ♿ Accessible forms using `aria-label` attributes for screen readers  
+
+
+<img src="/public/preview.png" alt="Ticket Preview" width="100%" />
+
+
+
 
 ## Installation
 
@@ -32,12 +44,38 @@ To get started, follow these steps:
 
 ```text
 TicketGeneration/
-├── src/
-│   ├── components/      
-├── public/             
-├── .eslintrc            
-├── vite.config.js       
-└── package.json        
+eslint.config.js
+index.html
+package-lock.json
+package.json
+postcss.config.mjs
+public
+├── barCode.jpg
+├── icon.png
+├── logo.png
+├── reg.png
+├── TICKET.svg
+├── vip.png
+├── vvip.png
+README.md
+src
+├── App.jsx
+├── assets
+├── Components
+│   ├── Card.jsx
+│   ├── CardButtons.jsx
+│   ├── Navbar.jsx
+├── fonts.css
+├── index.css
+├── main.jsx
+├── Router
+│   ├── About.jsx
+│   ├── AllTickets.jsx
+│   ├── DownloadTicketPage.jsx
+│   ├── FormPage.jsx
+│   ├── HomePage.jsx
+vercel.json
+vite.config.js      
 ```
 
 
