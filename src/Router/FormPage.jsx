@@ -89,16 +89,15 @@ function FormPage() {
         setLoading(true)
         const data = new FormData()
         data.append('file', file)
-        data.append('upload_preset', 'ticket-generation-cloud')
-        data.append('cloud_name', 'dakynh7xz')
+        data.append('upload_preset', `${import.meta.env.VITE_UPLOAD_PRESET}`)
+        data.append('cloud_name', `${import.meta.env.VITE_CLOUDINARY_NAME}`)
 
-        const result = await fetch("https://api.cloudinary.com/v1_1/dakynh7xz/image/upload", {
+        const result = await fetch(`${import.meta.env.VITE_CLOUDINARY_URL}`, {
             method: "POST",
             body: data
         })
         const uploadedUrl = await result.json()
 
-        console.log(file, uploadedUrl.url)
         setCloudImage(uploadedUrl.url)
         setFormData((prev) => ({ ...prev, image: uploadedUrl.url }))
         setLoading(false)
